@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " # ",
+    "###",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "bismuthcraft:bismuth"
+    }
+  },
+  "result": {
+    "item": "bismuthcraft:bismuth_ball"
+  }
+}

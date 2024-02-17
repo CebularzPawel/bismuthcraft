@@ -1,6 +1,8 @@
 package net.cebularz.bismuthcraft;
 
 import com.mojang.logging.LogUtils;
+import net.cebularz.bismuthcraft.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,7 +24,7 @@ import org.slf4j.Logger;
 public class bismuthcraft
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "bismuthmagic";
+    public static final String MOD_ID = "bismuthcraft";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -30,6 +32,7 @@ public class bismuthcraft
     public bismuthcraft()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModItems.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -50,6 +53,10 @@ public class bismuthcraft
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey()== CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.BISMUTH);
+            event.accept(ModItems.BISMUTH_BALL);
+        }
 
     }
 
