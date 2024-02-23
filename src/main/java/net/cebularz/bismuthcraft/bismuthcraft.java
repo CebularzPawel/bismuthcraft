@@ -1,6 +1,7 @@
 package net.cebularz.bismuthcraft;
 
 import com.mojang.logging.LogUtils;
+import net.cebularz.bismuthcraft.block.ModBlocks;
 import net.cebularz.bismuthcraft.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -33,6 +34,7 @@ public class bismuthcraft
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -56,6 +58,9 @@ public class bismuthcraft
         if(event.getTabKey()== CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.BISMUTH);
             event.accept(ModItems.BISMUTH_BALL);
+        }
+        if(event.getTabKey()== CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModBlocks.DEEPSLATE_BISMUTH_ORE);
         }
 
     }

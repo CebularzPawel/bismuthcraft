@@ -1,32 +1,26 @@
 package net.cebularz.bismuthcraft.spells;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.projectile.Snowball;
 
 public class czarytestowe {
-    // Zmienna przechowująca informację o tym, czy czar został już wykonany
-    private static boolean czarExecuted = false;
+    private static boolean spellexecuted = false;
 
-    // Metoda czar1 przyjmująca obiekt gracza jako argument
-    public static InteractionResult czar1(Player player) {
-        // Sprawdzamy, czy czar został już wykonany
-        if (!czarExecuted) {
-            // Wykonujemy czar
-            // Tutaj możesz umieścić swój kod czaru
+    public static InteractionResultHolder spell1(Player player, Level pLevel, InteractionHand pHand) {
 
-            // Wysyłamy wiadomość do gracza
-            player.sendSystemMessage(Component.literal("Czar wykonany"));
+        ItemStack $$3 = player.getItemInHand(pHand);
+        Snowball $$4 = new Snowball(pLevel, player);
+        $$4.setItem($$3);
+        $$4.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
+        pLevel.addFreshEntity($$4);
+        player.sendSystemMessage(Component.literal("Czar wykonany"));
+        return InteractionResultHolder.sidedSuccess($$3, pLevel.isClientSide());
 
-            // Ustawiamy flagę na true, oznaczającą, że czar został wykonany
-            czarExecuted = true;
 
-            // Zwracamy wynik interakcji
-            return InteractionResult.SUCCESS;
-        } else {
-            // Jeśli czar został już wykonany, resetujemy flagę i zwracamy FAIL
-            czarExecuted = false;
-            return InteractionResult.FAIL;
-        }
     }
 }
