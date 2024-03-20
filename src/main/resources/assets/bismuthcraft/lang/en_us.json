@@ -1,5 +1,18 @@
 {
   "item.bismuthcraft.bismuth": "Bismuth",
   "item.bismuthcraft.bismuth_ball": "Bismuth Ball",
-  "block.bismuthcraft.deepslate_bismuth_ore": "Deepslate Bismuth Ore"
+  "block.bismuthcraft.deepslate_bismuth_ore": "Deepslate Bismuth Ore",
+  "block.bismuthcraft.bismuth_block": "Bismuth Block",
+  "block.bismuthcraft.pineapple": "Pineapple",
+  "item.bismuthcraft.pineapple_slice": "Pineapple Slice",
+  "block.bismuthcraft.mud_pillar": "Mud Pillar",
+  "block.bismuthcraft.verdant_mud_lamp": "Verdant Mud Lamp",
+  "block.bismuthcraft.ochre_mud_lamp": "Ochre Mud Lamp",
+  "block.bismuthcraft.pearlescent_mud_lamp": "Pearlescent Mud Lamp",
+  "creativetab.custom_tab": "Custom tab",
+  "item.bismuthcraft.mud_ball": "Mud Ball",
+  "item.bismuthcraft.packed_mud_ball": "Packed Mud Ball",
+  "block.bismuthcraft.chiseled_mud_bricks": "Chiseled Mud Bricks",
+  "block.bismuthcraft.rotten_flesh_block": "Rotten Flesh Block",
+  "block.bismuthcraft.reinforced_cobblestone": "Reinforced Cobblestone"
 }

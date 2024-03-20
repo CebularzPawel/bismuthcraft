@@ -2,10 +2,16 @@ package net.cebularz.bismuthcraft;
 
 import com.mojang.logging.LogUtils;
 import net.cebularz.bismuthcraft.block.ModBlocks;
+import net.cebularz.bismuthcraft.entity.ModEntities;
+import net.cebularz.bismuthcraft.item.ModCreativeModTabs;
 import net.cebularz.bismuthcraft.item.ModItems;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -34,7 +40,9 @@ public class bismuthcraft
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(modEventBus);
+        ModCreativeModTabs.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEntities.register((modEventBus));
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -59,8 +67,14 @@ public class bismuthcraft
             event.accept(ModItems.BISMUTH);
             event.accept(ModItems.BISMUTH_BALL);
         }
+        if(event.getTabKey()== CreativeModeTabs.FOOD_AND_DRINKS){
+            event.accept(ModBlocks.PINEAPPLE);
+            event.accept(ModItems.PINEAPPLE_SLICE);
+        }
         if(event.getTabKey()== CreativeModeTabs.BUILDING_BLOCKS){
             event.accept(ModBlocks.DEEPSLATE_BISMUTH_ORE);
+            event.accept(ModBlocks.BISMUTH_BLOCK);
+            event.accept(ModBlocks.SPRUCE_PANELS);
         }
 
     }
@@ -71,14 +85,13 @@ public class bismuthcraft
     {
 
     }
-
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(EntityRenderersEvent.RegisterRenderers event) {
+            EntityRenderers.register(ModEntities.BISMUTH_SPELL.get(), ThrownItemRenderer::new);
 
+
+            }
         }
-    }
 }
