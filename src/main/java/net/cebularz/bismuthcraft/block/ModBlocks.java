@@ -1,8 +1,7 @@
 package net.cebularz.bismuthcraft.block;
 
 import net.cebularz.bismuthcraft.bismuthcraft;
-import net.cebularz.bismuthcraft.block.custom.MudLampBlock;
-import net.cebularz.bismuthcraft.block.custom.RottenFleshBlock;
+import net.cebularz.bismuthcraft.block.custom.*;
 import net.cebularz.bismuthcraft.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -26,7 +25,31 @@ public class ModBlocks {
     public static final RegistryObject<Block> SPRUCE_PANELS = registerBlock("spruce_panels",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> REINFORCED_COBBLESTONE = registerBlock("reinforced_cobblestone",
-            ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(12).requiresCorrectToolForDrops()));
+            ()-> new ReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(10).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SPRUCE_PLANKS_REINFORCED_COBBLESTONE = registerBlock("spruce_planks_reinforced_cobblestone",
+            ()-> new UpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.SPRUCE_PLANKS));
+    public static final RegistryObject<Block> BIRCH_PLANKS_REINFORCED_COBBLESTONE = registerBlock("birch_planks_reinforced_cobblestone",
+            ()-> new UpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.BIRCH_PLANKS));
+    public static final RegistryObject<Block> DARK_OAK_PLANKS_REINFORCED_COBBLESTONE = registerBlock("dark_oak_planks_reinforced_cobblestone",
+            ()-> new UpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.DARK_OAK_PLANKS));
+    public static final RegistryObject<Block> ACACIA_PLANKS_REINFORCED_COBBLESTONE = registerBlock("acacia_planks_reinforced_cobblestone",
+            ()-> new UpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.ACACIA_PLANKS));
+    public static final RegistryObject<Block> BAMBOO_PLANKS_REINFORCED_COBBLESTONE = registerBlock("bamboo_planks_reinforced_cobblestone",
+            ()-> new UpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.BAMBOO_PLANKS));
+    public static final RegistryObject<Block> CHERRY_PLANKS_REINFORCED_COBBLESTONE = registerBlock("cherry_planks_reinforced_cobblestone",
+            ()-> new UpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.CHERRY_PLANKS));
+    public static final RegistryObject<Block> CRIMSON_PLANKS_REINFORCED_COBBLESTONE = registerBlock("crimson_planks_reinforced_cobblestone",
+            ()-> new NetherUpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.CRIMSON_PLANKS));
+    public static final RegistryObject<Block> WARPED_PLANKS_REINFORCED_COBBLESTONE = registerBlock("warped_planks_reinforced_cobblestone",
+            ()-> new NetherUpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.WARPED_PLANKS));
+    public static final RegistryObject<Block> OAK_PLANKS_REINFORCED_COBBLESTONE = registerBlock("oak_planks_reinforced_cobblestone",
+            ()-> new NetherUpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.OAK_PLANKS));
+    public static final RegistryObject<Block> JUNGLE_PLANKS_REINFORCED_COBBLESTONE = registerBlock("jungle_planks_reinforced_cobblestone",
+            ()-> new NetherUpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.JUNGLE_PLANKS));
+    public static final RegistryObject<Block> MANGROVE_PLANKS_REINFORCED_COBBLESTONE = registerBlock("mangrove_planks_reinforced_cobblestone",
+            ()-> new NetherUpgradedReinforcedCobblestone(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1).requiresCorrectToolForDrops(),Blocks.MANGROVE_PLANKS));
+    public static final RegistryObject<Block> RANDOMGENERATOR = registerBlock("randomgenerator",
+            ()-> new RandomGeneratorBlock2(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PINEAPPLE = registerBlock("pineapple",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MELON).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> MUD_PILLAR = registerBlock("mud_pillar",

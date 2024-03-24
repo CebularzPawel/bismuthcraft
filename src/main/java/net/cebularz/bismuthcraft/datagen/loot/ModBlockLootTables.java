@@ -31,11 +31,38 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SPRUCE_PANELS.get());
         this.dropSelf(ModBlocks.PINEAPPLE.get());
         this.dropSelf(ModBlocks.MUD_PILLAR.get());
+        this.noDrop();
         this.dropSelf(ModBlocks.VERDANT_MUD_LAMP.get());
         this.dropSelf(ModBlocks.OCHRE_MUD_LAMP.get());
         this.dropSelf(ModBlocks.PEARLESCENT_MUD_LAMP.get());
-        this.dropSelf(ModBlocks.CHISELED_MUD_BRICKS.get());
+        this.dropSelf(ModBlocks.CHISELED_MUD_BRICKS.get());;
         this.dropSelf(ModBlocks.ROTTEN_FLESH_BLOCK.get());
+        this.dropSelf(ModBlocks.REINFORCED_COBBLESTONE.get());
+
+
+        this.add(ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.SPRUCE_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.BIRCH_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.ACACIA_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.BAMBOO_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.CHERRY_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.CRIMSON_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.WARPED_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.OAK_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.JUNGLE_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        this.add(ModBlocks.MANGROVE_PLANKS_REINFORCED_COBBLESTONE.get(),
+                block -> noDrop());
+        dropSelf(ModBlocks.RANDOMGENERATOR.get());
 
         this.add(ModBlocks.DEEPSLATE_BISMUTH_ORE.get(),
                 block -> createBismuthOreBlocks(ModBlocks.DEEPSLATE_BISMUTH_ORE.get(), ModItems.BISMUTH.get()));

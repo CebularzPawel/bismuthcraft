@@ -14,5 +14,18 @@
   "item.bismuthcraft.packed_mud_ball": "Packed Mud Ball",
   "block.bismuthcraft.chiseled_mud_bricks": "Chiseled Mud Bricks",
   "block.bismuthcraft.rotten_flesh_block": "Rotten Flesh Block",
-  "block.bismuthcraft.reinforced_cobblestone": "Reinforced Cobblestone"
+  "block.bismuthcraft.reinforced_cobblestone": "Reinforced Cobblestone",
+  "block.bismuthcraft.spruce_planks_reinforced_cobblestone": "Spruce Planks Reinforced Cobblestone",
+  "block.bismuthcraft.birch_planks_reinforced_cobblestone": "Birch Planks Reinforced Cobblestone",
+  "block.bismuthcraft.dark_oak_planks_reinforced_cobblestone": "Dark Oak Planks Reinforced Cobblestone",
+  "block.bismuthcraft.acacia_planks_reinforced_cobblestone": "Acacia Planks Reinforced Cobblestone",
+  "block.bismuthcraft.bamboo_planks_reinforced_cobblestone": "Bamboo Planks Reinforced Cobblestone",
+  "block.bismuthcraft.cherry_planks_reinforced_cobblestone": "Cherry Planks Reinforced Cobblestone",
+  "block.bismuthcraft.crimson_planks_reinforced_cobblestone": "Crimson Planks Reinforced Cobblestone",
+  "block.bismuthcraft.oak_planks_reinforced_cobblestone": "Oak Planks Reinforced Cobblestone",
+  "block.bismuthcraft.jungle_planks_reinforced_cobblestone": "Jungle Planks Reinforced Cobblestone",
+  "block.bismuthcraft.mangrove_planks_reinforced_cobblestone": "Mangrove Planks Reinforced Cobblestone",
+  "block.bismuthcraft.warped_planks_reinforced_cobblestone": "Warped Planks Reinforced Cobblestone"
+
+
 }

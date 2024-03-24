@@ -101,6 +101,7 @@ public class MudLampBlock extends Block {
             double d0 = (double)pos.getX() + world.getRandom().nextDouble();
             double d1 = (double)pos.getY() + world.getRandom().nextDouble();
             double d2 = (double)pos.getZ() + world.getRandom().nextDouble();
+
             world.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
     }

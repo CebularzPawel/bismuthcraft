@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/orientable",
+    "textures": {
+        "front": "bismuthcraft:block/random_generator_input",
+        "side": "bismuthcraft:block/randomgenerators/randomgenerator_373",
+        "top": "bismuthcraft:block/randomgenerator_end"
+    }
+}

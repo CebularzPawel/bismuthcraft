@@ -29,11 +29,25 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                         ModBlocks.VERDANT_MUD_LAMP.get(),
                         ModBlocks.OCHRE_MUD_LAMP.get(),
                         ModBlocks.PEARLESCENT_MUD_LAMP.get(),
-                        ModBlocks.CHISELED_MUD_BRICKS.get()
+                        ModBlocks.CHISELED_MUD_BRICKS.get(),
+                        ModBlocks.REINFORCED_COBBLESTONE.get()
                 );
 
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(ModBlocks.PINEAPPLE.get());
+                .add(ModBlocks.SPRUCE_PLANKS_REINFORCED_COBBLESTONE.get(),
+                    ModBlocks.BIRCH_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.ACACIA_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.BAMBOO_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.CHERRY_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.CRIMSON_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.OAK_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.JUNGLE_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.MANGROVE_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.WARPED_PLANKS_REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.PINEAPPLE.get()
+
+                );
     }
 }

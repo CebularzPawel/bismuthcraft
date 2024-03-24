@@ -25,6 +25,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SPRUCE_PANELS);
         blockWithItem(ModBlocks.CHISELED_MUD_BRICKS);
         blockWithItem(ModBlocks.ROTTEN_FLESH_BLOCK);
+        Top_Bottom_Side_Block(ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE,"block/dark_oak_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.BIRCH_PLANKS_REINFORCED_COBBLESTONE,"block/birch_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.ACACIA_PLANKS_REINFORCED_COBBLESTONE,"block/acacia_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.BAMBOO_PLANKS_REINFORCED_COBBLESTONE,"block/bamboo_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.CHERRY_PLANKS_REINFORCED_COBBLESTONE,"block/cherry_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.CRIMSON_PLANKS_REINFORCED_COBBLESTONE,"block/crimson_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.OAK_PLANKS_REINFORCED_COBBLESTONE,"block/oak_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.JUNGLE_PLANKS_REINFORCED_COBBLESTONE,"block/jungle_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.MANGROVE_PLANKS_REINFORCED_COBBLESTONE,"block/mangrove_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+        Top_Bottom_Side_Block(ModBlocks.WARPED_PLANKS_REINFORCED_COBBLESTONE,"block/warped_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
+
+        Top_Bottom_Side_Block(ModBlocks.SPRUCE_PLANKS_REINFORCED_COBBLESTONE,"block/spruce_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.REINFORCED_COBBLESTONE,"block/reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.PINEAPPLE,"block/pineapple","block/pineapple_bottom","block/pineapple_top");
         axisBlock(((RotatedPillarBlock) ModBlocks.MUD_PILLAR.get()), blockTexture(ModBlocks.MUD_PILLAR.get()),
