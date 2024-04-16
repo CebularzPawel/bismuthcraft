@@ -81,22 +81,22 @@ public class RandomGeneratorBlock2 extends DirectionalBlock {
                 }
             }
             if (litCount!=0){
-            // Set random state for each lamp independently
-            pLevel.setBlockAndUpdate(pPos, pState
-                    .setValue(LIT_1, false)
-                    .setValue(LIT_2, false)
-                    .setValue(LIT_3, false)
-                    .setValue(LIT_4, false)
-                    .setValue(LIT_5, false)
-                    .setValue(LIT_6, false)
-                    .setValue(LIT_7, false)
-                    .setValue(LIT_8, false)
-                    .setValue(LIT_9, false));
+                // Set random state for each lamp independently
+                pLevel.setBlockAndUpdate(pPos, pState
+                        .setValue(LIT_1, false)
+                        .setValue(LIT_2, false)
+                        .setValue(LIT_3, false)
+                        .setValue(LIT_4, false)
+                        .setValue(LIT_5, false)
+                        .setValue(LIT_6, false)
+                        .setValue(LIT_7, false)
+                        .setValue(LIT_8, false)
+                        .setValue(LIT_9, false));
 
-            // Notify neighboring blocks of state change
-            pLevel.gameEvent(null, GameEvent.BLOCK_CHANGE, pPos);
+                // Notify neighboring blocks of state change
+                pLevel.gameEvent(null, GameEvent.BLOCK_CHANGE, pPos);
 
-            return InteractionResult.SUCCESS;}
+                return InteractionResult.SUCCESS;}
         }
         return InteractionResult.PASS;
     }

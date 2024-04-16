@@ -62,8 +62,13 @@ public class ModBlocks {
             ()-> new MudLampBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).lightLevel(state -> state.getValue(MudLampBlock.LIT) ? 15 : 0).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CHISELED_MUD_BRICKS = registerBlock("chiseled_mud_bricks",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).requiresCorrectToolForDrops()));
+    
     public static final RegistryObject<Block> ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
             ()-> new RottenFleshBlock(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.2f)));
+    public static final RegistryObject<Block> FLESH_BLOCK = registerBlock("flesh_block",
+            ()-> new SentientFleshBlock(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.3f).randomTicks()));
+    public static final RegistryObject<Block> POISON_FLESH_BLOCK = registerBlock("poison_flesh_block",
+            ()-> new SentientFleshBlockPoisonBlock(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.3f).randomTicks()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){

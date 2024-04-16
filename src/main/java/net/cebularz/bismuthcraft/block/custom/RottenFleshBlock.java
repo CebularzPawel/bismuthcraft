@@ -3,6 +3,8 @@ package net.cebularz.bismuthcraft.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -34,16 +36,7 @@ public class RottenFleshBlock extends Block {
         return 12;
     }
 
-    @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
-        super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
 
 
-        AreaEffectCloud poisoncloud = new AreaEffectCloud(pLevel, pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D);
-        poisoncloud.setPotion(Potions.POISON);
-        poisoncloud.setDuration(7);
-        poisoncloud.setRadius(1.5f);
-        pLevel.addFreshEntity(poisoncloud);
-
-    }
 }
+

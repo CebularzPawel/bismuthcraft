@@ -67,6 +67,7 @@ public class Bismuth_Spell extends ThrowableItemProjectile {
             this.discard();
         }
     }
+
     @Override
     protected Item getDefaultItem() {
         return ModItems.BISMUTH_BALL.get();

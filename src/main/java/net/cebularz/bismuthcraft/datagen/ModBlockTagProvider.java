@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -32,6 +33,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                         ModBlocks.CHISELED_MUD_BRICKS.get(),
                         ModBlocks.REINFORCED_COBBLESTONE.get()
                 );
+        this.tag(BlockTags.SWORD_EFFICIENT)
+                .add(ModBlocks.ROTTEN_FLESH_BLOCK.get(),
+                        ModBlocks.FLESH_BLOCK.get(),
+                        ModBlocks.POISON_FLESH_BLOCK.get()
+                        );
+
 
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
