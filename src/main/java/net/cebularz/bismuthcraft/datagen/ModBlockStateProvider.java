@@ -27,6 +27,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.ROTTEN_FLESH_BLOCK);
         blockWithItem(ModBlocks.FLESH_BLOCK);
         blockWithItem(ModBlocks.POISON_FLESH_BLOCK);
+        blockWithItem(ModBlocks.POLISHED_PACKED_MUD);
 
         Top_Bottom_Side_Block(ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE,"block/dark_oak_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.BIRCH_PLANKS_REINFORCED_COBBLESTONE,"block/birch_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");

@@ -7,7 +7,11 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -25,7 +29,7 @@ import java.util.Random;
 
 public class SentientFleshBlockPoisonBlock extends Block
 {
-    public static IntegerProperty power = IntegerProperty.create("power", 0, 100);;
+    public static IntegerProperty power = IntegerProperty.create("power", 0, 100);
 
     public SentientFleshBlockPoisonBlock(BlockBehaviour.Properties pProperties ) {
         super(pProperties);
@@ -108,18 +112,25 @@ public class SentientFleshBlockPoisonBlock extends Block
             int power2 = pState.getValue(power);
             int intsize = power2 / 3;
             float size = 2f + 0.15f * (intsize);
-
             BlockPos blockpos = pPos.offset(pRandom.nextInt(4) - 2, 1, pRandom.nextInt(4) - 2);
             AreaEffectCloud poisoncloud = new AreaEffectCloud(pLevel, blockpos.getX() + 0.5D, blockpos.getY() + 0.5D, blockpos.getZ() + 0.5D);
             poisoncloud.setPotion(Potions.LONG_POISON);
-            poisoncloud.setDuration(40);
+            poisoncloud.setDuration(120);
             poisoncloud.setRadius(size);
             pLevel.addFreshEntity(poisoncloud);
         }
     }
 
-    
 
+
+    @Override
+    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
+        super.stepOn(pLevel, pPos, pState, pEntity);
+        if (pEntity instanceof LivingEntity) {
+            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.POISON, 80,2), pEntity);
+            pEntity.hurt(pLevel.damageSources().hotFloor(), 1.0F);
+        }
+    }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(power);

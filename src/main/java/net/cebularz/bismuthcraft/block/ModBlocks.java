@@ -7,6 +7,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,6 +56,12 @@ public class ModBlocks {
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MELON).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> MUD_PILLAR = registerBlock("mud_pillar",
             ()-> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).requiresCorrectToolForDrops()));
+
+
+    public static final RegistryObject<Block> MUD_SPLASH = registerBlock("mud_splash",
+            ()-> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN)));
+    public static final RegistryObject<Block> POLISHED_PACKED_MUD = registerBlock("polished_packed_mud",
+            ()-> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> VERDANT_MUD_LAMP = registerBlock("verdant_mud_lamp",
             ()-> new MudLampBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).lightLevel(state -> state.getValue(MudLampBlock.LIT) ? 15 : 0).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> OCHRE_MUD_LAMP = registerBlock("ochre_mud_lamp",
@@ -62,13 +70,16 @@ public class ModBlocks {
             ()-> new MudLampBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).lightLevel(state -> state.getValue(MudLampBlock.LIT) ? 15 : 0).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CHISELED_MUD_BRICKS = registerBlock("chiseled_mud_bricks",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).requiresCorrectToolForDrops()));
-    
+
     public static final RegistryObject<Block> ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
             ()-> new RottenFleshBlock(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.2f)));
     public static final RegistryObject<Block> FLESH_BLOCK = registerBlock("flesh_block",
             ()-> new SentientFleshBlock(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.3f).randomTicks()));
     public static final RegistryObject<Block> POISON_FLESH_BLOCK = registerBlock("poison_flesh_block",
             ()-> new SentientFleshBlockPoisonBlock(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.3f).randomTicks()));
+
+    public static final RegistryObject<Block> EYE_OF_FLESH = registerBlock("eye_of_flesh",
+            ()-> new SentientFleshEye(BlockBehaviour.Properties.copy(Blocks.MUD).strength(0.3f).randomTicks()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){

@@ -21,11 +21,14 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraft.world.phys.BlockHitResult;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class SentientFleshBlock extends Block {
@@ -33,7 +36,11 @@ public class SentientFleshBlock extends Block {
 
     public SentientFleshBlock(Properties pProperties ) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(power, 0));    }
+        this.registerDefaultState(this.stateDefinition.any().setValue(power, 0));
+
+    }
+
+
 
 
     @Override
@@ -109,8 +116,9 @@ public class SentientFleshBlock extends Block {
 
         BlockState blockstate = this.defaultBlockState();
         int power2 = pState.getValue(power);
-
-        int chance =  1 + (power2 / 5);
+        int hardnessint = power2/3;
+        float hardnesswanted = 0.8f+0.1f*hardnessint;
+        int chance =  1 + (power2 / 10);
         for(int i = 0; i < chance; ++i) {
 
             BlockPos blockpos = pPos.offset(
@@ -118,9 +126,11 @@ public class SentientFleshBlock extends Block {
                     pRandom.nextInt(3) - 1, // Random offset within [-1, 0, 1]
                     pRandom.nextInt(3) - 1  // Random offset within [-1, 0, 1]
             );
-            if (pLevel.getBlockState(blockpos).isCollisionShapeFullBlock(pLevel,blockpos)&&!(pLevel.getBlockState(blockpos).is(ModBlocks.FLESH_BLOCK.get()))&&!(pLevel.getBlockState(blockpos).is(ModBlocks.POISON_FLESH_BLOCK.get()))) {
-                int chance2 = 20-(power2 / 5);
+            float hardness = pLevel.getBlockState(blockpos).getDestroySpeed(pLevel,blockpos);
+            if (pLevel.getBlockState(blockpos).isCollisionShapeFullBlock(pLevel,blockpos)&&!(pLevel.getBlockState(blockpos).is(ModBlocks.FLESH_BLOCK.get()))&&!(pLevel.getBlockState(blockpos).is(ModBlocks.POISON_FLESH_BLOCK.get()))&&!(pLevel.getBlockState(blockpos).is(ModBlocks.EYE_OF_FLESH.get()))&&(0<hardness&&hardness<=hardnesswanted)) {
+                int chance2 = 10-(power2 / 10);
                 int randomNumber = pRandom.nextInt(100);
+
                 if (randomNumber < chance2) {
 
                     int newPower = Math.min(power2 + 1, 100);
@@ -151,13 +161,43 @@ public class SentientFleshBlock extends Block {
 
                     }
                     else{
-                    pLevel.setBlockAndUpdate(blockpos, blockstate.setValue(power,power2));}
+                    int randomNumber3 = pRandom.nextInt(100);
+                        if (randomNumber3 <= 2 && power2 >= 5) {
+                            // Determine available air sides surrounding the block, excluding up and down directions
+                            List<Direction> availableAirSides = new ArrayList<>();
+                            for (Direction direction : Direction.values()) {
+                                if (direction != Direction.UP && direction != Direction.DOWN) {
+                                    BlockPos adjacentPos = pPos.relative(direction);
+                                    if (pLevel.isEmptyBlock(adjacentPos)) {
+                                        availableAirSides.add(direction);
+                                    }
+                                }
+                            }
 
+                            // If there are available air sides, randomly select one
+                            if (!availableAirSides.isEmpty()) {
+                                Direction selectedDirection = availableAirSides.get(pRandom.nextInt(availableAirSides.size()));
+                                BlockPos blockpos2 = pPos.relative(selectedDirection);
+
+                                // Check if there's air above for eye_of_flesh block
+                                BlockPos blockposAbove = blockpos2.above();
+                                if (pLevel.isEmptyBlock(blockposAbove)) {
+                                    BlockState blockstate2 = ModBlocks.EYE_OF_FLESH.get().defaultBlockState();
+                                    blockstate2 = blockstate2.setValue(BlockStateProperties.FACING, selectedDirection);
+                                    pLevel.setBlockAndUpdate(blockpos, blockstate2.setValue(power, power2));
+                                }
+                            }
+                        }
+                    else{
+                        pLevel.setBlockAndUpdate(blockpos, blockstate.setValue(power,power2));}
+
+                    }
                 }
 
             }
         }
     }
+
 
 
 

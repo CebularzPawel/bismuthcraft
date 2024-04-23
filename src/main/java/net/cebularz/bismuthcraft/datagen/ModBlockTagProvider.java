@@ -27,6 +27,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.DEEPSLATE_BISMUTH_ORE.get(),
                     ModBlocks.BISMUTH_BLOCK.get(),
                         ModBlocks.MUD_PILLAR.get(),
+                        ModBlocks.POLISHED_PACKED_MUD.get(),
                         ModBlocks.VERDANT_MUD_LAMP.get(),
                         ModBlocks.OCHRE_MUD_LAMP.get(),
                         ModBlocks.PEARLESCENT_MUD_LAMP.get(),
@@ -36,7 +37,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.SWORD_EFFICIENT)
                 .add(ModBlocks.ROTTEN_FLESH_BLOCK.get(),
                         ModBlocks.FLESH_BLOCK.get(),
-                        ModBlocks.POISON_FLESH_BLOCK.get()
+                        ModBlocks.POISON_FLESH_BLOCK.get(),
+                        ModBlocks.EYE_OF_FLESH.get()
                         );
 
 
@@ -56,5 +58,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                         ModBlocks.PINEAPPLE.get()
 
                 );
+        this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ModBlocks.MUD_SPLASH.get());
     }
 }

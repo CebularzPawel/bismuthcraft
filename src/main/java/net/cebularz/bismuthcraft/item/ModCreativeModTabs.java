@@ -25,6 +25,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PINEAPPLE_SLICE.get());
                         pOutput.accept(ModItems.MUD_BALL.get());
                         pOutput.accept(ModItems.PACKED_MUD_BALL.get());
+                        pOutput.accept(ModBlocks.POLISHED_PACKED_MUD.get());
                         pOutput.accept(ModBlocks.MUD_PILLAR.get());
                         pOutput.accept(ModBlocks.CHISELED_MUD_BRICKS.get());
                         pOutput.accept(ModBlocks.PEARLESCENT_MUD_LAMP.get());
@@ -32,6 +33,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.VERDANT_MUD_LAMP.get());
                         pOutput.accept(ModBlocks.ROTTEN_FLESH_BLOCK.get());
                         pOutput.accept(ModBlocks.REINFORCED_COBBLESTONE.get());
+                        pOutput.accept(ModBlocks.FLESH_BLOCK.get());
+                        pOutput.accept(ModBlocks.POISON_FLESH_BLOCK.get());
+                        pOutput.accept(ModBlocks.EYE_OF_FLESH.get());
 
                     })
                     .build());

@@ -40,8 +40,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.REINFORCED_COBBLESTONE.get());
         this.dropSelf(ModBlocks.FLESH_BLOCK.get());
         this.dropSelf(ModBlocks.POISON_FLESH_BLOCK.get());
+        this.dropSelf(ModBlocks.EYE_OF_FLESH.get());
+        this.dropSelf(ModBlocks.POLISHED_PACKED_MUD.get());
 
 
+
+        this.add(ModBlocks.MUD_SPLASH.get(),
+                block -> noDrop());
         this.add(ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE.get(),
                 block -> noDrop());
         this.add(ModBlocks.SPRUCE_PLANKS_REINFORCED_COBBLESTONE.get(),

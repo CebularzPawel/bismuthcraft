@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "bismuthcraft:block/eye_of_flesh", "y": 0 },
+    "facing=south": { "model": "bismuthcraft:block/eye_of_flesh", "y": 180 },
+    "facing=east": { "model": "bismuthcraft:block/eye_of_flesh", "y": 90 },
+    "facing=west": { "model": "bismuthcraft:block/eye_of_flesh", "y": 270 }
+  }
+}
