@@ -72,4 +72,9 @@ public class Bismuth_Spell extends ThrowableItemProjectile {
     protected Item getDefaultItem() {
         return ModItems.BISMUTH_BALL.get();
     }
+
+    @Override
+    protected float getGravity() {
+        return 0f;
+    }
 }

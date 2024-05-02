@@ -6,6 +6,7 @@ import net.cebularz.bismuthcraft.entity.ModEntities;
 import net.cebularz.bismuthcraft.item.ModCreativeModTabs;
 import net.cebularz.bismuthcraft.item.ModItems;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -90,6 +91,7 @@ public class bismuthcraft
         @SubscribeEvent
         public static void onClientSetup(EntityRenderersEvent.RegisterRenderers event) {
             EntityRenderers.register(ModEntities.BISMUTH_SPELL.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(ModEntities.MUD_BALL_PROJECTILE_ENTITY.get(), ThrownItemRenderer::new);
 
 
             }

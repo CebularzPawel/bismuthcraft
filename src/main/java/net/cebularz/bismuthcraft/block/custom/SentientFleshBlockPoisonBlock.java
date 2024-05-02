@@ -115,7 +115,7 @@ public class SentientFleshBlockPoisonBlock extends Block
             BlockPos blockpos = pPos.offset(pRandom.nextInt(4) - 2, 1, pRandom.nextInt(4) - 2);
             AreaEffectCloud poisoncloud = new AreaEffectCloud(pLevel, blockpos.getX() + 0.5D, blockpos.getY() + 0.5D, blockpos.getZ() + 0.5D);
             poisoncloud.setPotion(Potions.LONG_POISON);
-            poisoncloud.setDuration(120);
+            poisoncloud.setDuration(360);
             poisoncloud.setRadius(size);
             pLevel.addFreshEntity(poisoncloud);
         }

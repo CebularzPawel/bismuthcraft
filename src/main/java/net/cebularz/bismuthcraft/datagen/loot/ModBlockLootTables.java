@@ -7,12 +7,14 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -42,9 +44,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.POISON_FLESH_BLOCK.get());
         this.dropSelf(ModBlocks.EYE_OF_FLESH.get());
         this.dropSelf(ModBlocks.POLISHED_PACKED_MUD.get());
+        this.dropOther(ModBlocks.MUD_FARMLAND.get(), Blocks.MUD);
 
-
-
+        this.add(ModBlocks.SINKING_MUD.get(),
+                block -> noDrop());
         this.add(ModBlocks.MUD_SPLASH.get(),
                 block -> noDrop());
         this.add(ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE.get(),

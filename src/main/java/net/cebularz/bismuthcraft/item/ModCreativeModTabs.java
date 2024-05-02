@@ -25,6 +25,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PINEAPPLE_SLICE.get());
                         pOutput.accept(ModItems.MUD_BALL.get());
                         pOutput.accept(ModItems.PACKED_MUD_BALL.get());
+                        pOutput.accept(ModItems.SINKING_MUD_BUCKET.get());
                         pOutput.accept(ModBlocks.POLISHED_PACKED_MUD.get());
                         pOutput.accept(ModBlocks.MUD_PILLAR.get());
                         pOutput.accept(ModBlocks.CHISELED_MUD_BRICKS.get());

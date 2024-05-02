@@ -1,5 +1,6 @@
 {
   "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "bismuthcraft:block/mud_splash",
     "mud_splash": "bismuthcraft:block/mud_splash"

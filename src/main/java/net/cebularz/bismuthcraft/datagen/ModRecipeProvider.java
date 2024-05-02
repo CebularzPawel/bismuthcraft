@@ -18,6 +18,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.POLISHED_PACKED_MUD.get().asItem(),Blocks.PACKED_MUD);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.CHISELED_MUD_BRICKS.get().asItem(),Blocks.PACKED_MUD);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,Blocks.MUD_BRICKS.asItem(),Blocks.PACKED_MUD);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.MUD_PILLAR.get().asItem(),Blocks.PACKED_MUD);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.POLISHED_PACKED_MUD.get().asItem(),Blocks.MUD_BRICKS);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.CHISELED_MUD_BRICKS.get().asItem(),Blocks.MUD_BRICKS);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.MUD_PILLAR.get().asItem(),Blocks.MUD_BRICKS);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHISELED_MUD_BRICKS.get())
+                .pattern("M  ")
+                .pattern("M  ")
+                .pattern("   ")
+                .define('M',Blocks.MUD_BRICK_SLAB)
+                .unlockedBy(getHasName(Blocks.MUD_BRICK_SLAB), has(Blocks.MUD_BRICK_SLAB))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BISMUTH_BLOCK.get())
                 .pattern("BBB")
                 .pattern("BBB")

@@ -23,6 +23,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.DEEPSLATE_BISMUTH_ORE.get(),
                         ModBlocks.BISMUTH_BLOCK.get()
                 );
+        this.tag(BlockTags.MAINTAINS_FARMLAND)
+                .add(ModBlocks.MUD_FARMLAND.get());
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.DEEPSLATE_BISMUTH_ORE.get(),
                     ModBlocks.BISMUTH_BLOCK.get(),

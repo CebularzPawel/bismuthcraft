@@ -20,8 +20,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BISMUTH);
         simpleItem(ModItems.BISMUTH_BALL);
         simpleItem(ModItems.PINEAPPLE_SLICE);
-        simpleItem(ModItems.MUD_BALL);
         simpleItem(ModItems.PACKED_MUD_BALL);
+        simpleItem(ModItems.SINKING_MUD_BUCKET);
 
     }
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

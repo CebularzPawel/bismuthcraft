@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -58,8 +57,12 @@ public class ModBlocks {
             ()-> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).requiresCorrectToolForDrops()));
 
 
+    public static final RegistryObject<Block> MUD_FARMLAND = registerBlock("mud_farmland",
+            ()-> new MudFarmLand(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.MUD).mapColor(MapColor.COLOR_GRAY)));
+    public static final RegistryObject<Block> SINKING_MUD = registerBlock("sinking_mud",
+            ()-> new SinkingMudBlock(BlockBehaviour.Properties.copy(Blocks.MUD)));
     public static final RegistryObject<Block> MUD_SPLASH = registerBlock("mud_splash",
-            ()-> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN)));
+            ()-> new MudSplashBlock(BlockBehaviour.Properties.copy(Blocks.MUD).mapColor(MapColor.GLOW_LICHEN).replaceable().noCollission().strength(0.2F)));
     public static final RegistryObject<Block> POLISHED_PACKED_MUD = registerBlock("polished_packed_mud",
             ()-> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> VERDANT_MUD_LAMP = registerBlock("verdant_mud_lamp",
