@@ -6,6 +6,7 @@ import net.cebularz.bismuthcraft.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -59,6 +60,7 @@ public class MudBallProjectile extends ThrowableItemProjectile {
         Entity entity = pResult.getEntity();
         int damage = 1;
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float)damage);
+        this.discard();
     }
 
     @Override
@@ -104,18 +106,23 @@ public class MudBallProjectile extends ThrowableItemProjectile {
     protected void onHit(HitResult pResult) {
         super.onHit(pResult);
 
-        for (int i = 0; i < 10; i++) { // Spawn 10 particles
-            double velocityX = this.random.nextGaussian() * 0.02D;
-            double velocityY = this.random.nextGaussian() * 0.02D;
-            double velocityZ = this.random.nextGaussian() * 0.02D;
+    }
+
+    public void handleEntityEvent(byte pId) {
+        if (pId == 3) {
             BlockParticleOption blockParticleData = new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MUD.defaultBlockState());
-            this.level().addParticle(blockParticleData, this.getX() , this.getY() + 0.7D, this.getZ(), velocityX, velocityY, velocityZ);
+
+
+            for(int $$2 = 0; $$2 < 8; ++$$2) {
+                this.level().addParticle(blockParticleData, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            }
         }
+
     }
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.BISMUTH_BALL.get();
+        return ModItems.MUD_BALL.get();
     }
 
     @Override
