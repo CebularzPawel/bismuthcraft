@@ -38,7 +38,8 @@ import java.util.Iterator;
 
 @Mod.EventBusSubscriber(modid = bismuthcraft.MOD_ID)
 public class MudFarmLand extends Block {
-    public static final IntegerProperty MOISTURE;
+    public static final IntegerProperty USED = IntegerProperty.create("used", 0, 64);
+
     protected static final VoxelShape SHAPE;
     public static final int MAX_MOISTURE = 7;
     public MudFarmLand(Properties pProperties) {
@@ -47,7 +48,7 @@ public class MudFarmLand extends Block {
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         if (pFacing == Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
             pLevel.scheduleTick(pCurrentPos, this, 1);
-            this.registerDefaultState((BlockState)((BlockState)this.stateDefinition.any()).setValue(MOISTURE, 7));
+            this.registerDefaultState(this.stateDefinition.any().setValue(USED, 0));
         }
 
         return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
@@ -78,8 +79,14 @@ public class MudFarmLand extends Block {
     }
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        int i = (Integer)pState.getValue(MOISTURE);
-
+        // Decrease the "USED" property on random tick
+        int used = pState.getValue(USED);
+        if (used < 32) {
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(USED, used + 1));
+        }
+        if (used==64){
+            turnToDirt((Entity)null, pState, pLevel, pPos);
+        }
     }
 
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
@@ -119,7 +126,7 @@ public class MudFarmLand extends Block {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(new Property[]{MOISTURE});
+        pBuilder.add(USED);
     }
 
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
@@ -127,7 +134,6 @@ public class MudFarmLand extends Block {
     }
 
     static {
-        MOISTURE = BlockStateProperties.MOISTURE;
         SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 15.0, 16.0);
     }
 
