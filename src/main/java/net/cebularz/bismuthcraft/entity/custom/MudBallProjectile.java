@@ -80,17 +80,17 @@ public class MudBallProjectile extends ThrowableItemProjectile {
             BlockPos finalPos = pos.relative(direction);
             BlockState state = level().getBlockState(finalPos);
 
-            if ((state.isAir() || state.canBeReplaced())) {
+            if ((state.isAir() || state.is(ModBlocks.MUD_SPLASH.get()))) {
                 BlockState setState;
                 setState = ModBlocks.MUD_SPLASH.get().defaultBlockState().setValue(MultifaceBlock.getFaceProperty(pResult.getDirection().getOpposite()), true);
-                if (state.is(ModBlocks.MUD_SPLASH.get())) {
-                    setState = state.setValue(MultifaceBlock.getFaceProperty(pResult.getDirection().getOpposite()),true);
-                }
-                if (setState.canSurvive(level(), finalPos)) {
-                    level().setBlock(finalPos, setState, 2);
-                    playSound(setState.getSoundType().getPlaceSound());
-                    discard();
-                    return;
+                    if (state.is(ModBlocks.MUD_SPLASH.get())) {
+                        setState = state.setValue(MultifaceBlock.getFaceProperty(pResult.getDirection().getOpposite()), true);
+                    }
+                    if (setState.canSurvive(level(), finalPos)) {
+                        level().setBlock(finalPos, setState, 2);
+                        playSound(setState.getSoundType().getPlaceSound());
+                        discard();
+                        return;
 
                 }
             }

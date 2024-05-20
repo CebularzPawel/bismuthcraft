@@ -35,7 +35,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                         ModBlocks.OCHRE_MUD_LAMP.get(),
                         ModBlocks.PEARLESCENT_MUD_LAMP.get(),
                         ModBlocks.CHISELED_MUD_BRICKS.get(),
-                        ModBlocks.REINFORCED_COBBLESTONE.get()
+                        ModBlocks.REINFORCED_COBBLESTONE.get(),
+                        ModBlocks.DRIED_MUD.get(),
+                        ModBlocks.DRIED_MUD_BRICKS.get(),
+                        ModBlocks.DRIED_MUD_PILLAR.get(),
+                        ModBlocks.POLISHED_DRIED_MUD.get(),
+                        ModBlocks.CHISELED_DRIED_MUD_BRICKS.get()
                 );
         this.tag(BlockTags.SWORD_EFFICIENT)
                 .add(ModBlocks.ROTTEN_FLESH_BLOCK.get(),
@@ -63,5 +68,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.MUD_SPLASH.get());
+
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.DRIED_MUD_BRICKS_WALL.get());
     }
+
 }

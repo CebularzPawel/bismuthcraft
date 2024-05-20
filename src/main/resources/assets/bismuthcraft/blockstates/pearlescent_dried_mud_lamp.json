@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": { "model": "bismuthcraft:block/pearlescent_dried_mud_lamp_on" },
+    "lit=false": { "model": "bismuthcraft:block/pearlescent_dried_mud_lamp_off" }
+  }
+}

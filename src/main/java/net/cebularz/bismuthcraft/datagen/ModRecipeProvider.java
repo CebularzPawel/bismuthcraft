@@ -32,6 +32,97 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.MUD_PILLAR.get().asItem(),Blocks.MUD_BRICKS);
 
+        //DRIED MUD BLOCKS
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.POLISHED_DRIED_MUD.get().asItem(),ModBlocks.DRIED_MUD.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.CHISELED_DRIED_MUD_BRICKS.get().asItem(),ModBlocks.DRIED_MUD.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS.get().asItem(),ModBlocks.DRIED_MUD.get());
+
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_PILLAR.get().asItem(),ModBlocks.DRIED_MUD.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.POLISHED_DRIED_MUD.get().asItem(),ModBlocks.DRIED_MUD_BRICKS.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.CHISELED_DRIED_MUD_BRICKS.get().asItem(),ModBlocks.DRIED_MUD_BRICKS.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_PILLAR.get().asItem(),ModBlocks.DRIED_MUD_BRICKS.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS_STAIRS.get().asItem(),ModBlocks.DRIED_MUD_BRICKS.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS_WALL.get().asItem(),ModBlocks.DRIED_MUD_BRICKS.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS_SLAB.get().asItem(),ModBlocks.DRIED_MUD_BRICKS.get(),2);
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS_STAIRS.get().asItem(),ModBlocks.DRIED_MUD.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS_WALL.get().asItem(),ModBlocks.DRIED_MUD.get());
+
+        stonecutterResultFromBase(consumer,RecipeCategory.MISC,ModBlocks.DRIED_MUD_BRICKS_SLAB.get().asItem(),ModBlocks.DRIED_MUD.get(),2);
+
+        smeltingResultFromBase(consumer,ModBlocks.DRIED_MUD.get().asItem(),Blocks.MUD);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.VERDANT_DRIED_MUD_LAMP.get(),1)
+                .pattern(" M ")
+                .pattern(" G ")
+                .pattern(" M ")
+                .define('G', Blocks.VERDANT_FROGLIGHT)
+                .define('M', ModBlocks.DRIED_MUD_BRICKS_SLAB.get())
+                .unlockedBy(getHasName(Blocks.VERDANT_FROGLIGHT), has(Blocks.VERDANT_FROGLIGHT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DRIED_MUD_BRICKS_SLAB.get(),6)
+                .pattern("   ")
+                .pattern("   ")
+                .pattern("MMM")
+                .define('M', ModBlocks.DRIED_MUD_BRICKS.get())
+                .unlockedBy(getHasName(ModBlocks.DRIED_MUD_BRICKS.get()), has(ModBlocks.DRIED_MUD_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DRIED_MUD_BRICKS_STAIRS.get(),4)
+                .pattern("M  ")
+                .pattern("MM ")
+                .pattern("MMM")
+                .define('M', ModBlocks.DRIED_MUD_BRICKS.get())
+                .unlockedBy(getHasName(ModBlocks.DRIED_MUD_BRICKS.get()), has(ModBlocks.DRIED_MUD_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DRIED_MUD_BRICKS_WALL.get(),6)
+                .pattern("   ")
+                .pattern("MMM")
+                .pattern("MMM")
+                .define('M', ModBlocks.DRIED_MUD_BRICKS.get())
+                .unlockedBy(getHasName(ModBlocks.DRIED_MUD_BRICKS.get()), has(ModBlocks.DRIED_MUD_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.OCHRE_DRIED_MUD_LAMP.get(),1)
+                .pattern(" M ")
+                .pattern(" G ")
+                .pattern(" M ")
+                .define('G', Blocks.OCHRE_FROGLIGHT)
+                .define('M', ModBlocks.DRIED_MUD_BRICKS_SLAB.get())
+                .unlockedBy(getHasName(Blocks.OCHRE_FROGLIGHT), has(Blocks.OCHRE_FROGLIGHT))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PEARLESCENT_DRIED_MUD_LAMP.get(),1)
+                .pattern(" M ")
+                .pattern(" G ")
+                .pattern(" M ")
+                .define('G', Blocks.PEARLESCENT_FROGLIGHT)
+                .define('M', ModBlocks.DRIED_MUD_BRICKS_SLAB.get())
+                .unlockedBy(getHasName(Blocks.PEARLESCENT_FROGLIGHT), has(Blocks.PEARLESCENT_FROGLIGHT))
+                .save(consumer);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHISELED_DRIED_MUD_BRICKS.get())
+                .pattern("M  ")
+                .pattern("M  ")
+                .pattern("   ")
+                .define('M',ModBlocks.DRIED_MUD_BRICKS_SLAB.get())
+                .unlockedBy(getHasName(ModBlocks.DRIED_MUD_BRICKS_SLAB.get()), has(ModBlocks.DRIED_MUD_BRICKS_SLAB.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHISELED_MUD_BRICKS.get())
                 .pattern("M  ")
                 .pattern("M  ")

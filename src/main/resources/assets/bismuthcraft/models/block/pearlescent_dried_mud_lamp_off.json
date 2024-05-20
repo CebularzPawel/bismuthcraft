@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "bismuthcraft:block/dried_mud_lamp_end",
+    "side": "bismuthcraft:block/pearlescent_dried_mud_lamp_off",
+    "top": "bismuthcraft:block/dried_mud_lamp_end"
+  }
+}

@@ -4,9 +4,15 @@ import net.cebularz.bismuthcraft.bismuthcraft;
 import net.cebularz.bismuthcraft.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -25,10 +31,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.FarmlandWaterManager;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.common.*;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -38,7 +41,6 @@ import java.util.Iterator;
 
 @Mod.EventBusSubscriber(modid = bismuthcraft.MOD_ID)
 public class MudFarmLand extends Block {
-    public static final IntegerProperty USED = IntegerProperty.create("used", 0, 64);
 
     protected static final VoxelShape SHAPE;
     public static final int MAX_MOISTURE = 7;
@@ -48,7 +50,6 @@ public class MudFarmLand extends Block {
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         if (pFacing == Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
             pLevel.scheduleTick(pCurrentPos, this, 1);
-            this.registerDefaultState(this.stateDefinition.any().setValue(USED, 0));
         }
 
         return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
@@ -78,16 +79,7 @@ public class MudFarmLand extends Block {
 
     }
 
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        // Decrease the "USED" property on random tick
-        int used = pState.getValue(USED);
-        if (used < 32) {
-            pLevel.setBlockAndUpdate(pPos, pState.setValue(USED, used + 1));
-        }
-        if (used==64){
-            turnToDirt((Entity)null, pState, pLevel, pPos);
-        }
-    }
+
 
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
         if (!pLevel.isClientSide && ForgeHooks.onFarmlandTrample(pLevel, pPos, Blocks.MUD.defaultBlockState(), pFallDistance, pEntity)) {
@@ -108,6 +100,25 @@ public class MudFarmLand extends Block {
         BlockState state = pLevel.getBlockState(pPos);
         return plant.getBlock() instanceof IPlantable && state.canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable)plant.getBlock());
     }
+    @Override
+    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
+        net.minecraftforge.common.PlantType plantType = plantable.getPlantType(world, pos.relative(facing));
+        return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
+    }
+
+    @Override
+    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
+        for (int i = 0; i < 15; i++) {
+            double d0 = (double)pPos.getX() + pLevel.getRandom().nextDouble();
+            double d1 = (double)pPos.getY() + pLevel.getRandom().nextDouble();
+            double d2 = (double)pPos.getZ() + pLevel.getRandom().nextDouble();
+            BlockParticleOption blockParticleData = new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MUD.defaultBlockState());
+
+            pLevel.addParticle(blockParticleData, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        }
+        turnToDirt(pEntity, pState, pLevel, pPos);
+        super.stepOn(pLevel, pPos, pState, pEntity);
+    }
 
     private static boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
         BlockState state = pLevel.getBlockState(pPos);
@@ -125,9 +136,7 @@ public class MudFarmLand extends Block {
         return true;
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(USED);
-    }
+
 
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return false;
@@ -153,6 +162,13 @@ public class MudFarmLand extends Block {
             }
         }
     }
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        if (pLevel.dimensionType().ultraWarm()) {
+            pLevel.setBlock(pPos, ModBlocks.DRIED_MUD.get().defaultBlockState(), 3);
+            pLevel.levelEvent(2009, pPos, 0);
+            pLevel.playSound((Player)null, pPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, (1.0F + pLevel.getRandom().nextFloat() * 0.2F) * 0.7F);
+        }
 
+    }
 }
 

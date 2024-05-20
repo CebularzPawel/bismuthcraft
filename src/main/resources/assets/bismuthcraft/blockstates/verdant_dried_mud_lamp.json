@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": { "model": "bismuthcraft:block/verdant_dried_mud_lamp_on" },
+    "lit=false": { "model": "bismuthcraft:block/verdant_dried_mud_lamp_off" }
+  }
+}

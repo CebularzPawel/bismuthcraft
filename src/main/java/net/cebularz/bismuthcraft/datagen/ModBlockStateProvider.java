@@ -4,8 +4,7 @@ import net.cebularz.bismuthcraft.bismuthcraft;
 import net.cebularz.bismuthcraft.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -23,11 +22,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BISMUTH_BLOCK);
         blockWithItem(ModBlocks.DEEPSLATE_BISMUTH_ORE);
         blockWithItem(ModBlocks.SPRUCE_PANELS);
+
+        axisBlock(((RotatedPillarBlock) ModBlocks.MUD_PILLAR.get()), blockTexture(ModBlocks.MUD_PILLAR.get()),
+                new ResourceLocation(bismuthcraft.MOD_ID, "block/mud_pillar_end"));
+        blockItem(ModBlocks.MUD_PILLAR);
         blockWithItem(ModBlocks.CHISELED_MUD_BRICKS);
         blockWithItem(ModBlocks.ROTTEN_FLESH_BLOCK);
         blockWithItem(ModBlocks.FLESH_BLOCK);
         blockWithItem(ModBlocks.POISON_FLESH_BLOCK);
         blockWithItem(ModBlocks.POLISHED_PACKED_MUD);
+        blockWithItem(ModBlocks.DRIED_MUD);
+        blockWithItem(ModBlocks.DRIED_MUD_BRICKS);
+        blockWithItem(ModBlocks.POLISHED_DRIED_MUD);
+        blockWithItem(ModBlocks.CHISELED_DRIED_MUD_BRICKS);
+        axisBlock(((RotatedPillarBlock) ModBlocks.DRIED_MUD_PILLAR.get()), blockTexture(ModBlocks.DRIED_MUD_PILLAR.get()),
+                new ResourceLocation(bismuthcraft.MOD_ID, "block/dried_mud_pillar_end"));
+        blockItem(ModBlocks.DRIED_MUD_PILLAR);
+
+        stairsBlock(((StairBlock) ModBlocks.DRIED_MUD_BRICKS_STAIRS.get()),blockTexture(ModBlocks.DRIED_MUD_BRICKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.DRIED_MUD_BRICKS_SLAB.get()),blockTexture(ModBlocks.DRIED_MUD_BRICKS.get()),blockTexture(ModBlocks.DRIED_MUD_BRICKS.get()));
+        wallBlock(((WallBlock) ModBlocks.DRIED_MUD_BRICKS_WALL.get()),blockTexture(ModBlocks.DRIED_MUD_BRICKS.get()));
+
+
+
         Top_Bottom_Side_Block(ModBlocks.DARK_OAK_PLANKS_REINFORCED_COBBLESTONE,"block/dark_oak_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.BIRCH_PLANKS_REINFORCED_COBBLESTONE,"block/birch_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.ACACIA_PLANKS_REINFORCED_COBBLESTONE,"block/acacia_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
@@ -42,9 +59,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         Top_Bottom_Side_Block(ModBlocks.SPRUCE_PLANKS_REINFORCED_COBBLESTONE,"block/spruce_planks_reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.REINFORCED_COBBLESTONE,"block/reinforced_cobblestone_side","block/reinforced_cobblestone_end","block/reinforced_cobblestone_end");
         Top_Bottom_Side_Block(ModBlocks.PINEAPPLE,"block/pineapple","block/pineapple_bottom","block/pineapple_top");
-        axisBlock(((RotatedPillarBlock) ModBlocks.MUD_PILLAR.get()), blockTexture(ModBlocks.MUD_PILLAR.get()),
-                new ResourceLocation(bismuthcraft.MOD_ID, "block/mud_pillar_end"));
-        blockItem(ModBlocks.MUD_PILLAR);
+
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

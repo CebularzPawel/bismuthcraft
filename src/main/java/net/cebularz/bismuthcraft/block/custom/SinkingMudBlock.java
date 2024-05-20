@@ -8,6 +8,7 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -53,12 +54,20 @@ public class SinkingMudBlock extends Block implements BucketPickup{
     public boolean skipRendering(BlockState pState, BlockState pAdjacentState, Direction pDirection) {
         return pAdjacentState.is(this) ? true : super.skipRendering(pState, pAdjacentState, pDirection);
     }
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        if (pLevel.dimensionType().ultraWarm()) {
+            pLevel.setBlock(pPos, ModBlocks.DRIED_MUD.get().defaultBlockState(), 3);
+            pLevel.levelEvent(2009, pPos, 0);
+            pLevel.playSound((Player)null, pPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, (1.0F + pLevel.getRandom().nextFloat() * 0.2F) * 0.7F);
+        }
 
+    }
     public VoxelShape getOcclusionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return Shapes.empty();
     }
 
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        int headblock = (int) pEntity.getEyeHeight();
         if (!(pEntity instanceof LivingEntity) || pEntity.getFeetBlockState().is(this)) {
             pEntity.makeStuckInBlock(pState, new Vec3(0.8999999761581421, 1.5, 0.8999999761581421));
             if (pLevel.isClientSide) {
@@ -70,7 +79,8 @@ public class SinkingMudBlock extends Block implements BucketPickup{
                 }
             }
         }
-        if(pLevel.getBlockState(pPos.offset(0,1,0)).is(ModBlocks.SINKING_MUD.get())){
+
+        if(pLevel.getBlockState(pPos.offset(0,headblock,0)).is(ModBlocks.SINKING_MUD.get())){
             if (!(pEntity instanceof ItemEntity)){
                 pEntity.hurt(pLevel.damageSources().inWall(), 1.0F);
             }

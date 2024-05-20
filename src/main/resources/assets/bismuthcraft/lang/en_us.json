@@ -10,11 +10,22 @@
   "block.bismuthcraft.verdant_mud_lamp": "Verdant Mud Lamp",
   "block.bismuthcraft.ochre_mud_lamp": "Ochre Mud Lamp",
   "block.bismuthcraft.pearlescent_mud_lamp": "Pearlescent Mud Lamp",
+  "block.bismuthcraft.verdant_dried_mud_lamp": "Verdant Dried Mud Lamp",
+  "block.bismuthcraft.ochre_dried_mud_lamp": "Ochre Dried Mud Lamp",
+  "block.bismuthcraft.pearlescent_dried_mud_lamp": "Pearlescent Dried Mud Lamp",
+  "block.bismuthcraft.dried_mud_bricks_stairs": "Dried Mud Bricks Stairs",
+  "block.bismuthcraft.dried_mud_bricks_slab": "Dried Mud Bricks Slab",
+  "block.bismuthcraft.dried_mud_bricks_wall": "Dried Mud Bricks Wall",
   "creativetab.custom_tab": "Custom tab",
   "item.bismuthcraft.sinking_mud_bucket": "Sinking Mud Bucket",
   "item.bismuthcraft.mud_ball": "Mud Ball",
   "item.bismuthcraft.packed_mud_ball": "Packed Mud Ball",
   "block.bismuthcraft.chiseled_mud_bricks": "Chiseled Mud Bricks",
+  "block.bismuthcraft.dried_mud": "Dried Mud",
+  "block.bismuthcraft.dried_mud_bricks": "Dried Mud Bricks",
+  "block.bismuthcraft.dried_mud_pillar": "Dried Mud Pillar",
+  "block.bismuthcraft.polished_dried_mud": "Polished Dried Mud",
+  "block.bismuthcraft.chiseled_dried_mud_bricks": "Chiseled Dried Mud Bricks",
   "block.bismuthcraft.rotten_flesh_block": "Rotten Flesh Block",
   "block.bismuthcraft.flesh_block": "Flesh Block",
   "block.bismuthcraft.poison_flesh_block": "Poison Flesh Block",
@@ -31,7 +42,7 @@
   "block.bismuthcraft.oak_planks_reinforced_cobblestone": "Oak Planks Reinforced Cobblestone",
   "block.bismuthcraft.jungle_planks_reinforced_cobblestone": "Jungle Planks Reinforced Cobblestone",
   "block.bismuthcraft.mangrove_planks_reinforced_cobblestone": "Mangrove Planks Reinforced Cobblestone",
-  "block.bismuthcraft.warped_planks_reinforced_cobblestone": "Warped Planks Reinforced Cobblestone"
-
+  "block.bismuthcraft.warped_planks_reinforced_cobblestone": "Warped Planks Reinforced Cobblestone",
+  "effect.bismuthcraft.muddy": "Muddy"
 
 }
