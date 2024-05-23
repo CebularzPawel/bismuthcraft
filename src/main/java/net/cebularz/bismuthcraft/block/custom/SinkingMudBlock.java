@@ -147,6 +147,16 @@ public class SinkingMudBlock extends Block implements BucketPickup{
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return true;
     }
+    @Override
+    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+        if (!level.isClientSide) {
+            BlockState neighborState = level.getBlockState(fromPos);
+            if (neighborState.getBlock() == Blocks.WATER) {
+                // Do nothing to prevent disappearing when touching water
+                level.playSound(null, pos, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F);
+            }
+        }
+    }
 }
 
 

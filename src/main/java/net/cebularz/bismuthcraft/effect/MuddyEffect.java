@@ -15,4 +15,5 @@ public class MuddyEffect extends MobEffect {
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         return true;
     }
+
 }
